@@ -18,7 +18,7 @@ public class Practice0306 {
     }
 
     public static void main(String[] args){
-        Main T = new Main();
+        Practice0306 T = new Practice0306();
         Scanner kb = new Scanner(System.in);
         int n1 = kb.nextInt();
         int n2 = kb.nextInt();
