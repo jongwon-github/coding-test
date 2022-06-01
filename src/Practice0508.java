@@ -13,8 +13,8 @@ class Person {
 }
 
 public class Practice0508 {
-    public String solution(int n, int m, int[] arr) {
-        String answer = "";
+    public int solution(int n, int m, int[] arr) {
+        int answer = 1;
         Queue<Person> queue = new LinkedList<>();
         for (int i = 0; i < n; i++) {
             queue.offer(new Person(i, arr[i]));
@@ -23,10 +23,14 @@ public class Practice0508 {
             Person tmp = queue.poll();
             for (Person x : queue) {
                 if (x.priority > tmp.priority) {
-                    queue.offer(x);
+                    queue.offer(tmp);
                     tmp = null;
                     break;
                 }
+            }
+            if (tmp != null) {
+                if (tmp.id == m) return answer;
+                else answer++;
             }
         }
         return answer;
@@ -35,5 +39,12 @@ public class Practice0508 {
     public static void main(String[] args) {
         Practice0508 T = new Practice0508();
         Scanner kb = new Scanner(System.in);
+        int n = kb.nextInt();
+        int m = kb.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = kb.nextInt();
+        }
+        System.out.println(T.solution(n, m, arr));
     }
 }
