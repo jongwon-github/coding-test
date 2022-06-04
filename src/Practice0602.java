@@ -1,21 +1,21 @@
 import java.util.Scanner;
 
-public class Practice0601 {
+public class Practice0602 {
     public int[] solution(int n, int[] arr) {
-        for (int i = 0; i < n - 1; i++) {
-            int idx = i;
-            for (int j = i + 1; j < n; j++) {
-                if (arr[idx] > arr[j]) idx = j;
+        for (int i = n - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int tmp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = tmp;
+                }
             }
-            int tmp = arr[i];
-            arr[i] = arr[idx];
-            arr[idx] = tmp;
         }
         return arr;
     }
 
     public static void main(String[] args) {
-        Practice0601 T = new Practice0601();
+        Practice0602 T = new Practice0602();
         Scanner kb = new Scanner(System.in);
         int n = kb.nextInt();
         int[] arr = new int[n];
