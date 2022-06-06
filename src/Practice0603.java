@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+/* 삽입정렬 : 현재 비교하고자 하는 target(타겟)과 그 이전의 원소들과 비교하며 자리를 교환(swap)하는 정렬 방법 */
 public class Practice0603 {
     public int[] solution(int n, int[] arr) {
         for (int i = 1; i < n; i++) {

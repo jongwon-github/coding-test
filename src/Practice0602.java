@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+/* 버블정렬 : 정렬 과정에서 원소의 이동이 마치 거품이 수면위로 올라오는 것 같다고 해서 거품(Bubble) 이라는 이름이 붙었다고 함 */
 public class Practice0602 {
     public int[] solution(int n, int[] arr) {
         for (int i = n - 1; i > 0; i--) {

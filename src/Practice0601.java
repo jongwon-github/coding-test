@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+/* 선택정렬 : 선택 정렬은 말 그대로 현재 위치에 들어갈 데이터를 찾아 선택하는 알고리즘 */
 public class Practice0601 {
     public int[] solution(int n, int[] arr) {
         for (int i = 0; i < n - 1; i++) {
