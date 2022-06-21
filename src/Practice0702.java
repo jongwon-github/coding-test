@@ -5,7 +5,7 @@ public class Practice0702 {
        if (n == 0) return;
        else {
            DFS(n / 2);
-           System.out.print(n % 2);
+           System.out.print(n % 2 + " ");
        }
     }
 
