@@ -9,7 +9,7 @@ public class Practice0702 {
        }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Practice0702 T = new Practice0702();
         Scanner kb = new Scanner(System.in);
         int n = kb.nextInt();
