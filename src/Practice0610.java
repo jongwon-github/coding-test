@@ -23,8 +23,6 @@ public class Practice0610 {
         // 두 말의 거리값 중 최대값 -> (arr[n - 1] - arr[0]) 값이 정확할 거 같은데 어차피 이분검색으로 값을 줄여 나날거라 마구간 위치 정보 중 제일 큰 값으로 세팅
         int rt = arr[n - 1];
         while (lt <= rt) {
-            // 이전 마구간의 위치 정보
-            int ep = arr[0];
             int mid = (lt + rt) / 2;
             if (count(arr, mid) >= c) {
                 answer = mid;
