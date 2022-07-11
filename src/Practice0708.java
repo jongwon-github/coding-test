@@ -19,7 +19,7 @@ public class Practice0708 {
                 int x = Q.poll();
                 for (int j = 0; j < 3; j++) {
                     int nx = x + dis[j];
-                    if (nx == e) return L++; 
+                    if (nx == e) return L + 1;
                     if (nx >= 1 && nx <= 10000 && ch[nx] == 0) {
                         ch[nx] = 1;
                         Q.offer(nx);
