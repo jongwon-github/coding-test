@@ -6,15 +6,19 @@ public class Practice0801 {
     boolean flag = false;
 
     public void DFS(int L, int sum, int[] arr) {
+        if (flag) return;
         if (L == n) {
-            // 이 부분에서 어떻게 해야 되지???
+            if (total - sum == sum) {
+                answer = "YES";
+                flag = true;
+            }     
         } else {
             DFS(L + 1, sum + arr[L], arr);
             DFS(L + 1, sum, arr);
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Practice0801 T = new Practice0801();
         Scanner kb = new Scanner(System.in);
         n = kb.nextInt();
