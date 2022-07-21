@@ -6,7 +6,7 @@ public class Practice0712 {
     static ArrayList<ArrayList<Integer>> graph;
     static int[] ch;
 
-    public void DFS(int v){
+    public void DFS(int v) {
         if (v == n) answer++;
         else {
             for (int nv : graph.get(v)) {
@@ -25,7 +25,7 @@ public class Practice0712 {
         n = kb.nextInt();
         m = kb.nextInt();
         graph = new ArrayList<ArrayList<Integer>>();
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i <= n; i++) {
             graph.add(new ArrayList<Integer>());
         }
         ch = new int[n + 1];
