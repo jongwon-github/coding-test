@@ -5,7 +5,10 @@ public class Practice0804 {
     static int n, m;
 
     public void DFS(int L) {
-        if (L == m) System.out.println("다 돌았다!");
+        if (L == m) {
+            for (int x : pm) System.out.print(x + " ");
+            System.out.println();
+        }
         else {
             for (int i = 1; i <= n; i++) {
                 pm[L] = i;
