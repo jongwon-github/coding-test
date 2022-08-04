@@ -4,8 +4,9 @@ public class Practice0807 {
     int[][] dy = new int[35][35];
 
     public int DFS(int n, int r) {
-        if (n == r || r == 0) return 1;
-        else return DFS(n - 1, r) + DFS(n - 1, r - 1);
+        if (dy[n][r] > 0) return dy[n][r];
+        else if (n == r || r == 0) return 1;
+        else return dy[n][r] = DFS(n - 1, r) + DFS(n - 1, r - 1);
     }
 
     public static void main(String[] args) {
