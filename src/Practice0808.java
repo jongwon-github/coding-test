@@ -13,8 +13,12 @@ public class Practice0808 {
     }
 
     public void DFS(int L, int sum) {
+        if (flag) return;
         if (L == n) {
-
+            if (sum == f) {
+                for (int x : p) System.out.println(x + " ");
+                flag = true;
+            }
         } else {
             for (int i = 1; i <= n; i++) {
                 if (ch[i] == 0) {
