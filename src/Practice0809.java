@@ -11,8 +11,8 @@ public class Practice0809 {
             }
             System.out.println();
         } else {
-            for (; s <= m; s++) {
-                combi[L] = s;
+            for (int i = s; i <= n; i++) {
+                combi[L] = i;
                 DFS(L + 1, s + 1);
             }
         }
