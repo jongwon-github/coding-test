@@ -46,8 +46,8 @@ public class CdTest0108 {
         // 입실시간이 빠르고 퇴실시간이 빠른경우
         // 입실시간이 느리고 퇴실시간이 느린경우
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if ((enterT[i] > exitT[j] || exitT[i] < enterT[j])) {
+            for (int j = i + 1; j < n; j++) {
+                if (!(exitT[i] < enterT[j] || exitT[j] < enterT[i])) {
                     answer[i]++;
                     answer[j]++;
                 }
