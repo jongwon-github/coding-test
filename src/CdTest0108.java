@@ -8,6 +8,7 @@ public class CdTest0108 {
         int[] enterT = new int[n];
         int[] exitT = new int[n];
 
+        // 들어온 순서를 '0' 부터 지정하려고 아래 로직을 수행 
         for (int i = 0; i < n; i++) {
             enter[i]--;
             exit[i]--;
