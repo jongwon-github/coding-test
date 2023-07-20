@@ -8,6 +8,7 @@ public class CdTest0108 {
         int[] enterT = new int[n];
         int[] exitT = new int[n];
 
+        // 들어온 순서를 '0' 부터 지정하려고 아래 로직을 수행 
         for (int i = 0; i < n; i++) {
             enter[i]--;
             exit[i]--;
@@ -41,12 +42,12 @@ public class CdTest0108 {
          * 따라서 확실하게 만나지 않는 경우를 '부정' 해서 확실하게 만나는 경우를 구함
          */
 
-        // 절대로 안만나는 경우
+        // 안만나는 경우
         // 입실시간이 빠르고 퇴실시간이 빠른경우
         // 입실시간이 느리고 퇴실시간이 느린경우
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if ((enterT[i] > exitT[j] || exitT[i] < enterT[j])) {
+            for (int j = i + 1; j < n; j++) {
+                if (!(exitT[i] < enterT[j] || exitT[j] < enterT[i])) {
                     answer[i]++;
                     answer[j]++;
                 }
