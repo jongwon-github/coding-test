@@ -1,22 +1,21 @@
 import java.util.*;
 
-class Report implements Comparable<Report> {
+class Info implements Comparable<Info> {
     String name;
-    int hour, minute;
+    int time;
 
-    Report (String name, int hour, int minute) {
+    Info(String name, int time) {
         this.name = name;
-        this.hour = hour;
-        this.minute = minute;
+        this.time = time;
     }
 
     @Override
-    public int compareTo(Report o) {
-        // hour, minute 오름차순정렬
-        // 왜 -1을 return 하지?
-        if (this.hour > o.hour) return this.hour - o.hour;
-        else if (this.hour == o.hour) return this.minute - o.minute;
-        return -1;
+    public int compareTo(Info o) {
+        /**
+         * time 오름차순정렬
+         * 메서드를 호출하는 객체가 인자로 넘어온 객체보다 작을 경우에는 음수, 크기가 동일하다면 0, 클 경우에는 양수를 리턴 해야 함
+         */
+        return this.time - o.time;
     }
 }
 
@@ -33,22 +32,22 @@ public class CdTest0206 {
     }
 
     public String[] solution(String[] reports, String times){
-        String[] answer = {};
-        List<Report> rList = new ArrayList<>();
-        int i = 0;
+        ArrayList<Info> infoList = new ArrayList<>();
         for (String report : reports) {
-            Report r = new Report(report.split(" ")[0], Integer.parseInt(report.split(" ")[1].split(":")[0]), Integer.parseInt(report.split(" ")[1].split(":")[1]));
-            rList.add(i++, r);
+            String name = report.split(" ")[0];
+            infoList.add(new Info(name, getTime(report.split(" ")[1])));
         }
-        Collections.sort(rList);
+        Collections.sort(infoList);
+        ArrayList<String> nameList = new ArrayList<>();
         int s = getTime(times.split(" ")[0]);
         int e = getTime(times.split(" ")[1]);
-        ArrayList<String> nList = new ArrayList<>();
-        for (Report r : rList) {
-            int time = getTime(String.valueOf(r.hour) + String.valueOf(r.minute));
-            if (time >= s && time <= e) {
-                nList.add(r.name);
-            }
+        for (Info info : infoList) {
+            if (info.time >= s && info.time <= e) nameList.add(info.name);
+            if (info.time > e) break;
+        }
+        String[] answer = new String[nameList.size()];
+        for(int i = 0; i < nameList.size(); i++){
+            answer[i] = nameList.get(i);
         }
         return answer;
     }
@@ -56,7 +55,7 @@ public class CdTest0206 {
     public static void main(String[] args) {
         CdTest0206 T = new CdTest0206();
         System.out.println(Arrays.toString(T.solution(new String[]{"john 15:23", "daniel 09:30", "tom 07:23", "park 09:59", "luis 08:57"}, "08:33 09:45")));
-        //System.out.println(Arrays.toString(T.solution(new String[]{"ami 12:56", "daniel 15:00", "bob 19:59", "luis 08:57", "bill 17:35", "tom 07:23", "john 15:23", "park 09:59"}, "15:01 19:59")));
-        //System.out.println(Arrays.toString(T.solution(new String[]{"cody 14:20", "luis 10:12", "alice 15:40", "tom 15:20", "daniel 14:50"}, "14:20 15:20")));
+        System.out.println(Arrays.toString(T.solution(new String[]{"ami 12:56", "daniel 15:00", "bob 19:59", "luis 08:57", "bill 17:35", "tom 07:23", "john 15:23", "park 09:59"}, "15:01 19:59")));
+        System.out.println(Arrays.toString(T.solution(new String[]{"cody 14:20", "luis 10:12", "alice 15:40", "tom 15:20", "daniel 14:50"}, "14:20 15:20")));
     }
 }
