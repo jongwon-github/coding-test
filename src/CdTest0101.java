@@ -1,10 +1,4 @@
 import java.util.Arrays;
-2. JPQL 문법
-- select m from Member as m where m.age > 18
-- 엔티티와 속성은 대소문자 구분○(Member, age)
-- JPQL 키워드는 대소문자 구분X(SELECT, FROM, where)
-- 엔티티 이름 사용, 테이블 이름이 아님(Member)
-- 별칭은 필수(m)(as는 생략가능)
 
 public class CdTest0101 {
     public char[] solution(int n, int[][] ladder){
